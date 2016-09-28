@@ -8,7 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-/*import com.fyg.multisitio.comun.LogHandler;*/
+
 
 
 public final class FabricaConexiones {
@@ -45,14 +45,11 @@ public final class FabricaConexiones {
 		SqlSessionFactoryBuilder 	builderTx;
 		SqlSessionFactory 			sqlMapperTx = null;
 		try {
-			readerTx 		= Resources.getResourceAsReader( "com/fyg/multisitio/dao/resources/database-config.xml" );
+			readerTx 		= Resources.getResourceAsReader( "com/fyg/microcredito/dao/resources/database-config.xml" );
 			builderTx 		= new SqlSessionFactoryBuilder( );
 			sqlMapperTx 	= builderTx.build( readerTx );
 		} catch ( Exception e ) {
-			/*LogHandler.error(null, FabricaConexiones.class, "Error : " + e.getMessage(), e );
-			LogHandler.error(null, FabricaConexiones.class, "Error : " + e.getCause(), e );
-			LogHandler.error(null, FabricaConexiones.class, "Error : " + e.getClass().getName(), e );
-			LogHandler.error(null, FabricaConexiones.class, "Existio un error en la Fabrica de Conexiones Tx", e);*/
+			
 			System.out.printf("Existio un error en la Fabrica de Conexiones Tx", e);
  		}
 		fACTORY_TX = sqlMapperTx;
@@ -67,11 +64,10 @@ public final class FabricaConexiones {
 		SqlSessionFactoryBuilder 	builderNTx;
 		SqlSessionFactory 			sqlMapperNTx = null;
 		try {
-			readerNTx 		= Resources.getResourceAsReader( "com/fyg/multisitio/dao/resources/database-config.xml" );
+			readerNTx 		= Resources.getResourceAsReader( "com/fyg/microcredito/dao/resources/database-config.xml" );
 			builderNTx 		= new SqlSessionFactoryBuilder( );
 			sqlMapperNTx 	= builderNTx.build( readerNTx );
 		} catch ( Exception e ) {
-			/*LogHandler.error(null, FabricaConexiones.class, "Existio un error en la Fabrica de Conexiones NTx", e);*/
 			System.out.printf("Existio un error en la Fabrica de Conexiones Tx", e);
  		}
 		fACTORY_NTX = sqlMapperNTx;
@@ -95,8 +91,6 @@ public final class FabricaConexiones {
 				throw new Exception(  );
 			}
 		} catch (Exception e) {
-			/*LogHandler.error(null, FabricaConexiones.class, "Existio un erorr al obtenerSesionTx", e);
-			throw new SQLException( "Sin conexion TX a la base de datos" );*/
 			System.out.printf("Sin conexion TX a la base de datos", e);
 		}
 		return regreso;
@@ -121,8 +115,6 @@ public final class FabricaConexiones {
 				throw new Exception(  );
 			}
 		} catch (Exception e) {
-			/*LogHandler.error(null, FabricaConexiones.class, "Exsitio un erorr al obtenerSesionNTx", e);
-			throw new SQLException( "Sin conexion NTX a la base de datos" );*/
 			System.out.printf("Sin conexion NTX a la base de datos", e);
 		}
 		return regreso;

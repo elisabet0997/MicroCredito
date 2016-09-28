@@ -13,7 +13,7 @@ public class RegistraMicroCredito {
 	 * @return estatus respuesta
 	 */
 
-	public void registraUsuarios(Usuario usuarios) {
+	public void registraUsuario(Usuario usuarios) {
 		SqlSession sessionTx = null;
 		
 		try {
