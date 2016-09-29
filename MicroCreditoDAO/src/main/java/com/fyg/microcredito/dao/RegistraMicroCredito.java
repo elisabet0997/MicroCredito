@@ -1,36 +1,34 @@
 package com.fyg.microcredito.dao;
 
 import org.apache.ibatis.session.SqlSession;
-import com.fyg.microcredito.dao.resources.FabricaConexiones;
-import com.fyg.microcredito.dto.Usuario;
 
+import com.fyg.microcredito.dao.resources.FabricaConexiones;
+import com.fyg.microcredito.dto.Usuarios;
 
 public class RegistraMicroCredito {
 	
-	/**
-	 * Ingresa un  registro a la tabla usuarios
-	 * @param usuario 
-	 * @return estatus respuesta
-	 */
-
-	public void registraUsuario(Usuario usuarios) {
+	public void registraUsuarios(Usuarios usuarios)
+	{
 		SqlSession sessionTx = null;
-		
-		try {
-			//Abrimos conexion Transaccional
+		try
+		{
 			sessionTx = FabricaConexiones.obtenerSesionTx();
-			sessionTx.insert("RegistraMicroCredito.insertaRegistroUsuarios", usuarios);
-	
-			//Realizamos commit
-			sessionTx.commit();
-		}
-		catch (Exception ex) {
-			//Realizamos rollBack
 			
-			FabricaConexiones.rollBack(sessionTx);
-           
+			int registros = sessionTx.insert("RegistraMicroCredito.insertaRegistroUsuarios", usuarios);
+			
+			if(registros == 0)
+			{
+				System.out.print("No se pudo guardar el usuario");
+				
+			}
+				sessionTx.commit();
 		}
-		finally {
+		catch(Exception e)
+		{
+			System.out.print("No se pudo guardar el usuario" + e);
+		}
+		finally 
+		{
 			FabricaConexiones.close(sessionTx);
 		}
 	}

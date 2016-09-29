@@ -8,138 +8,140 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-
-
-
 public final class FabricaConexiones {
-
-	/**
-	 * Constructor de la clase FabricaConexiones
-	 */
-	private FabricaConexiones() {
+	
+	private FabricaConexiones()
+	{
+		
 	}
-
-	/**
-	 * sesion SqlSessionFactory
-	 */
-	private static SqlSessionFactory fACTORY_TX;
-	/**
-	 * sesion FACTORY_NTX
-	 */
-	private static SqlSessionFactory fACTORY_NTX;
-
-	static {
-		//Tx
+	
+	private static SqlSessionFactory FactoryTX;
+	
+	private static SqlSessionFactory FactoryNTX;
+	
+	static 
+	{
 		iobtenerSesionTx();
-
-		//NTx
 		iobtenerSesionNTx();
+		
 	}
-
-	/**
-	 * Obtiene una sesion a la base de datos.
-	 * @throws IOException
-	 */
-	private static void iobtenerSesionTx() {
-		Reader 						readerTx;
-		SqlSessionFactoryBuilder 	builderTx;
-		SqlSessionFactory 			sqlMapperTx = null;
-		try {
-			readerTx 		= Resources.getResourceAsReader( "com/fyg/microcredito/dao/resources/database-config.xml" );
-			builderTx 		= new SqlSessionFactoryBuilder( );
-			sqlMapperTx 	= builderTx.build( readerTx );
-		} catch ( Exception e ) {
+	//Conexión del tipo Tx
+	private static void iobtenerSesionTx()
+	{
+		Reader readerTx;
+		SqlSessionFactoryBuilder builderTx;
+		SqlSessionFactory sqlMapperTx = null;
+		
+		try
+		{
+			readerTx = Resources.getResourceAsReader("com/fyg//microcredito/dao/resources/database-config.xml");
+			builderTx = new SqlSessionFactoryBuilder();
+			sqlMapperTx = builderTx.build(readerTx);
 			
-			System.out.printf("Existio un error en la Fabrica de Conexiones Tx", e);
- 		}
-		fACTORY_TX = sqlMapperTx;
 		}
-
-	/**
-	 * Obtiene una sesion a la base de datos.
-	 * @throws IOException
-	 */
-	private static void iobtenerSesionNTx()	{
-		Reader 						readerNTx;
-		SqlSessionFactoryBuilder 	builderNTx;
-		SqlSessionFactory 			sqlMapperNTx = null;
-		try {
-			readerNTx 		= Resources.getResourceAsReader( "com/fyg/microcredito/dao/resources/database-config.xml" );
-			builderNTx 		= new SqlSessionFactoryBuilder( );
-			sqlMapperNTx 	= builderNTx.build( readerNTx );
-		} catch ( Exception e ) {
-			System.out.printf("Existio un error en la Fabrica de Conexiones Tx", e);
- 		}
-		fACTORY_NTX = sqlMapperNTx;
+		
+		catch(Exception e)
+		{
+			System.out.print("Error en la Fabrica de Conexiones Tx" + e);
 		}
-
-	/**
-	 * Obtiene una sesion a la base de datos.
-	 * @return Sesion.
-	 * @throws IOException
-	 */
-	public static SqlSession obtenerSesionTx( ) throws SQLException {
+		
+		FactoryTX = sqlMapperTx;
+	}
+	
+	//Conexión del tipo NTx
+	
+	private static void iobtenerSesionNTx()
+	{
+		Reader readerNTx;
+		SqlSessionFactoryBuilder builderNTx;
+		SqlSessionFactory sqlMapperNTx = null;
+		
+		try
+		{
+			readerNTx = Resources.getResourceAsReader("com/fyg//microcredito/dao/resources/database-config.xml");
+			builderNTx = new SqlSessionFactoryBuilder();
+			sqlMapperNTx = builderNTx.build(readerNTx);
+			
+		}
+		
+		catch(Exception e)
+		{
+			System.out.print("Error en la Fabrica de Conexiones NTx" + e);
+		}
+		
+		FactoryNTX = sqlMapperNTx;
+	}
+	
+	public static SqlSession obtenerSesionTx() throws SQLException
+	{
 		SqlSession regreso = null;
-		try {
-			if ( fACTORY_TX == null ) {
+		
+		try
+		{
+			if(FactoryTX == null)
+			{
 				iobtenerSesionTx();
 			}
-			if ( fACTORY_TX != null ) {
-				regreso = fACTORY_TX.openSession( false );
+			if(FactoryTX != null)
+			{
+				regreso = FactoryTX.openSession(false);
 			}
-			if ( regreso == null ) {
-				throw new Exception(  );
+			if(regreso == null)
+			{
+				throw new Exception();
 			}
-		} catch (Exception e) {
-			System.out.printf("Sin conexion TX a la base de datos", e);
+		}
+		catch(Exception e)
+		{
+			System.out.print("Sin conexión TX a la base de datos" + e);
+			throw new SQLException("Sin conexión TX a la base de datos");
 		}
 		return regreso;
 	}
-
-
-	/**
-	 * Obtiene una sesion a la base de datos.
-	 * @return Sesion.
-	 * @throws IOException
-	 */
-	public static SqlSession obtenerSesionNTx( ) throws SQLException {
+	
+	public static SqlSession obtenerSesionNTx() throws SQLException
+	{
 		SqlSession regreso = null;
-		try {
-			if ( fACTORY_NTX == null ) {
+		
+		try
+		{
+			if(FactoryNTX == null)
+			{
 				iobtenerSesionNTx();
 			}
-			if ( fACTORY_NTX != null ) {
-				regreso = fACTORY_NTX.openSession( true ); //Autocommit ON, no permite transacciones
+			if(FactoryNTX != null)
+			{
+				regreso = FactoryNTX.openSession(true);
 			}
-			if ( regreso == null ) {
-				throw new Exception(  );
+			if(regreso == null)
+			{
+				throw new Exception();
 			}
-		} catch (Exception e) {
-			System.out.printf("Sin conexion NTX a la base de datos", e);
+		}
+		catch(Exception e)
+		{
+			System.out.print("Sin conexión NTX a la base de datos" + e);
+			throw new SQLException("Sin conexión NTX a la base de datos");
 		}
 		return regreso;
 	}
-
-	/**
-	 * Cierra una sesion a la base de datos.
-	 * @param conn tipo SqlSession
-	 * @throws IOException
-	 */
-	public static void close(SqlSession conn) {
-		if ( conn != null ) {
-			conn.close( );
-			conn = null;
-			}
-	}
-	/**
-	 * Regresa los cambios de la base de datos.
-	 * @param conn tipo SqlSession
-	 * @throws IOException
-	 */
-	public static void rollBack(SqlSession conn) {
-		if ( conn != null ) {
-			conn.rollback( true );
+	
+	public static void close(SqlSession con)
+	{
+		if (con != null)
+		{
+			con.close();
+			con = null;
 		}
 	}
-
+	
+	public static void rollBack(SqlSession con)
+	{
+		if(con != null)
+		{
+			con.rollback(true);
+		}
+	}
+	
+	
 }

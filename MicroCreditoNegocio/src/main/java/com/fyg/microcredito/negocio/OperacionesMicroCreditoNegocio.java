@@ -1,15 +1,15 @@
 package com.fyg.microcredito.negocio;
 
 import com.fyg.microcredito.dao.RegistraMicroCredito;
-import com.fyg.microcredito.dto.Usuario;
+import com.fyg.microcredito.dto.Usuarios;
 
 public class OperacionesMicroCreditoNegocio {
-	
-	public void registraUsuario(Usuario usuarios){
+	public void registraUsuarios(Usuarios usuarios)
+	{
 		try 
 		{
 			RegistraMicroCredito dao = new RegistraMicroCredito();
-			dao.registraUsuario(usuarios);
+			dao.registraUsuarios(usuarios);
 			
 		}
 		catch ( Exception e )
@@ -17,5 +17,4 @@ public class OperacionesMicroCreditoNegocio {
 			System.out.printf("Error", e);
 		}
 	}
-
 }
