@@ -1,32 +1,33 @@
 package com.fyg.microcredito.negocio.test;
 
+import java.util.Date;
+
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Date;
-import com.fyg.microcredito.dto.Usuario;
+import com.fyg.microcredito.dto.Usuarios;
 import com.fyg.microcredito.negocio.OperacionesMicroCreditoNegocio;
 
 public class UsuariosTest {
 	private OperacionesMicroCreditoNegocio data;
 	
-    private Usuario  registroUsuario;
+    private Usuarios  registroUsuarios;
     
 	@Before
 	public void setUp() throws Exception {
 		   data = new OperacionesMicroCreditoNegocio();
 		   
-		   Date fecha_alta = new Date();
+		   Date fecha = new Date();
 		   
-		   registroUsuario = new Usuario();
-		   registroUsuario.setUsuario("elisabet0997");
-		   registroUsuario.setId_perfil(123456);
-		   registroUsuario.setPersona("persona");
-		   registroUsuario.setContrasenia("123456");
-		   registroUsuario.setCambio_contrasenia('N');
-		   registroUsuario.setFecha_alta(fecha_alta);
-		   registroUsuario.setFecha_ult_mod(fecha_alta);
-		   registroUsuario.setEstatus('A');
+		   registroUsuarios = new Usuarios();
+		   registroUsuarios.setUsuario("elisabet0997");
+		   registroUsuarios.setId_perfil(123456);
+		   registroUsuarios.setPersona("persona");
+		   registroUsuarios.setContrasenia("123456");
+		   registroUsuarios.setCambio_contrasenia("N");
+		   registroUsuarios.setFecha_alta(fecha);
+		   registroUsuarios.setFecha_ult_mod(fecha);
+		   registroUsuarios.setEstatus("A");
 		   
 
 	}
@@ -35,10 +36,10 @@ public class UsuariosTest {
 	 */
 	@Test
 	@SuppressWarnings("static-access")
-	public void testRegistraUsuario() {
+	public void testRegistraUsuarios() {
 
 		try {
-			data.registraUsuario(registroUsuario);
+			data.registraUsuarios(registroUsuarios);
 			System.out.println("Prueba exitosa");
 		}
 		catch (Exception e) {

@@ -17,4 +17,12 @@
 	)
         VALUES(#{usuario},#{id_perfil},#{persona},#{contrasenia},#{cambio_contrasenia},#{fecha_alta},#{fecha_ult_mod},#{estatus})
 	</insert>
+
+<update id="actualizaRegistroUsuarios" parameterType="usuarios">
+UPDATE usuarios SET
+		estatus = #{estatus},
+		fecha_ult_mod=#{fecha_ult_mod}
+	WHERE usuario = #{usuario}
+</update>
+
 </mapper>
