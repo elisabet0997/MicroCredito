@@ -5,6 +5,7 @@ import java.util.Date;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.fyg.microcredito.dto.Personas;
 import com.fyg.microcredito.dto.Usuarios;
 import com.fyg.microcredito.negocio.OperacionesMicroCreditoNegocio;
 
@@ -16,7 +17,7 @@ public class UsuariosTest {
 	@Before
 	public void setUp() throws Exception {
 		   data = new OperacionesMicroCreditoNegocio();
-		   
+		  
 		   Date fecha = new Date();
 		   
 		   registroUsuarios = new Usuarios();

@@ -6,6 +6,7 @@
 <configuration>
 <typeAliases>
 	<typeAlias alias="Usuarios" type="com.fyg.microcredito.dto.Usuarios"/>
+	<typeAlias alias="Personas" type="com.fyg.microcredito.dto.Personas"/>
 </typeAliases>
 
 

@@ -12,8 +12,7 @@ public class Usuarios {
 	private Date fecha_alta;
 	private Date fecha_ult_mod;
 	private String estatus;
-	
-	
+
 	public String getUsuario()
 	{
 		return usuario;

@@ -17,6 +17,24 @@
 	)
         VALUES(#{usuario},#{id_perfil},#{persona},#{contrasenia},#{cambio_contrasenia},#{fecha_alta},#{fecha_ult_mod},#{estatus})
 	</insert>
+	
+	<insert id="insertaRegistroPersonas" parameterType="personas" useGeneratedKeys="true" keyProperty="persona"  keyColumn="persona">
+		INSERT INTO personas
+		(
+			persona,
+			nombre,
+			apellido_pat,
+			apellido_mat,
+			sexo,
+			rfc,
+			curp,
+			fecha_nacimiento,
+			fecha_alta,
+			fecha_ult_mod,
+			estatus
+		)
+		VALUES(#{persona}, #{nombre}, #{apellido_pat}, #{apellido_mat}, #{sexo}, #{rfc}, #{curp}, #{fecha_nacimiento}, #{fecha_alta}, #{fecha_ult_mod}, #{estatus})
+	</insert>
 
 <update id="actualizaRegistroUsuarios" parameterType="usuarios">
 UPDATE usuarios SET
