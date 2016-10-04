@@ -7,6 +7,9 @@
 <typeAliases>
 	<typeAlias alias="Usuarios" type="com.fyg.microcredito.dto.Usuarios"/>
 	<typeAlias alias="Personas" type="com.fyg.microcredito.dto.Personas"/>
+	<typeAlias alias="Menu" type="com.fyg.microcredito.dto.Menu"/>
+	<typeAlias alias="Perfil" type="com.fyg.microcredito.dto.Perfil"/>
+	<typeAlias alias="Perfil_Menu" type="com.fyg.microcredito.dto.Perfil_Menu"/>
 </typeAliases>
 
 

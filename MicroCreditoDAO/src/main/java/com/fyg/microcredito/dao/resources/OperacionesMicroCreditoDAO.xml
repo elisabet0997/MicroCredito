@@ -2,22 +2,47 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper
 	namespace="com.fyg.microcredito.dao.resources.OperacionesMicroCreditoDAO">
-
-	<insert id="insertaRegistroUsuarios" parameterType="usuarios">
-		INSERT INTO usuarios
+<!--- INSERTA EN  LA TABLA MENU-->
+	<insert id="insertaRegistroMenu" parameterType="menu" useGeneratedKeys="true" keyProperty="id"  keyColumn="id_menu">
+	INSERT INTO menu
 	(
-		usuario,
-		id_perfil,
-		persona,
-		contrasenia,
-		cambio_contrasenia,
-		fecha_alta,
-		fecha_ult_mod,
+		id_menu,
+		id_padre,
+		menu,
+		descripcion,
+		url,
 		estatus
 	)
-        VALUES(#{usuario},#{id_perfil},#{persona},#{contrasenia},#{cambio_contrasenia},#{fecha_alta},#{fecha_ult_mod},#{estatus})
-	</insert>
+		VALUES(#{id_menu}, #{id_padre}, #{menu}, #{descripcion}, #{url}, #{estatus})
+		    <selectKey keyProperty="id" resultType="Integer" order="AFTER">
+            SELECT LAST_INSERT_ID();
+            </selectKey>
 
+	</insert>
+<!--- INSERTA EN  LA TABLA PERFIL-->
+	<insert id="insertaRegistroPerfil" parameterType="perfil">
+		INSERT INTO perfil
+		(
+			id_perfil,
+			nombre,
+			descripcion,
+			estatus
+		)
+			VALUES(#{id_perfil}, #{nombre}, #{descripcion}, #{estatus})
+	</insert>
+<!--- INSERTA EN  LA TABLA PERFIL_MENU-->
+	<insert id="insertaRegistroPerfil_Menu" parameterType="perfil_menu">
+	INSERT INTO perfil_menu
+	(
+		id_perfil,
+		id_menu,
+		orden,
+		estatus
+	)
+		VALUES(#{id_perfil}, #{id_menu}, #{orden}, #{estatus})
+
+	</insert>
+<!--- INSERTA EN  LA TABLA PERSONAS-->
 	<insert id="insertaRegistroPersonas" parameterType="personas" useGeneratedKeys="true" keyProperty="persona"  keyColumn="persona">
 		INSERT INTO personas
 		(
@@ -35,12 +60,28 @@
 		)
 		VALUES(#{persona}, #{nombre}, #{apellido_pat}, #{apellido_mat}, #{sexo}, #{rfc}, #{curp}, #{fecha_nacimiento}, #{fecha_alta}, #{fecha_ult_mod}, #{estatus})
 	</insert>
-
-<update id="actualizaRegistroUsuarios" parameterType="usuarios">
-UPDATE usuarios SET
-		estatus = #{estatus},
-		fecha_ult_mod=#{fecha_ult_mod}
-	WHERE usuario = #{usuario}
-</update>
+										<!--- OPERACIONES EN LA TABLA USUARIOS-->
+<!--- INSERTA EN  LA TABLA USUARIOS-->
+	<insert id="insertaRegistroUsuarios" parameterType="usuarios">
+		INSERT INTO usuarios
+	(
+		usuario,
+		id_perfil,
+		persona,
+		contrasenia,
+		cambio_contrasenia,
+		fecha_alta,
+		fecha_ult_mod,
+		estatus
+	)
+        VALUES(#{usuario},#{id_perfil},#{persona},#{contrasenia},#{cambio_contrasenia},#{fecha_alta},#{fecha_ult_mod},#{estatus})
+	</insert>
+<!--- ACTUALIZA LA TABLA USUARIOS-->
+	<update id="actualizaRegistroUsuarios" parameterType="usuarios">
+	UPDATE usuarios SET
+			estatus = #{estatus},
+			fecha_ult_mod=#{fecha_ult_mod}
+		WHERE usuario = #{usuario}
+	</update>
 
 </mapper>
