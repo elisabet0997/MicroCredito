@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper
 	namespace="com.fyg.microcredito.dao.resources.OperacionesMicroCreditoDAO">
-	
+
 	<insert id="insertaRegistroUsuarios" parameterType="usuarios">
 		INSERT INTO usuarios
 	(
@@ -17,7 +17,7 @@
 	)
         VALUES(#{usuario},#{id_perfil},#{persona},#{contrasenia},#{cambio_contrasenia},#{fecha_alta},#{fecha_ult_mod},#{estatus})
 	</insert>
-	
+
 	<insert id="insertaRegistroPersonas" parameterType="personas" useGeneratedKeys="true" keyProperty="persona"  keyColumn="persona">
 		INSERT INTO personas
 		(

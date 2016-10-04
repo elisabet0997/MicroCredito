@@ -11,9 +11,18 @@ import com.fyg.microcredito.dto.Personas;
 import com.fyg.microcredito.negocio.OperacionesMicroCreditoNegocio;
 
 public class PersonaTest {
+	/**
+	 * Se crea el objeto data para mandarle valores al usuario
+	 */
 private OperacionesMicroCreditoNegocio data;
-	
+	/**
+	 * Objeto usuarios para mandar valores
+	 */
     private Personas registroPersonas;
+    /**
+     * @author Elisabet Vasquez
+     * @throws Exception
+     */
 	@Before
 	public void setUp() throws Exception {
 		   data = new OperacionesMicroCreditoNegocio();

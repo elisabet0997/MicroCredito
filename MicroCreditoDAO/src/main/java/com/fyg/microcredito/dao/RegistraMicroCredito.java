@@ -7,9 +7,10 @@ import com.fyg.microcredito.dto.Personas;
 import com.fyg.microcredito.dto.Usuarios;
 
 public class RegistraMicroCredito {
-	
-	private Personas ObjPersonas;
-	//Método que inactiva un usuario
+	/**
+	 * Inactiva un registro de la usuarios
+	 * @param usuarios variable para la actualizacion
+	 */
 	public void inactivaUsuarios(Usuarios usuarios)
 	{
 		SqlSession sessionTx = null;
@@ -17,13 +18,13 @@ public class RegistraMicroCredito {
 		{
 			sessionTx = FabricaConexiones.obtenerSesionTx();
 			int actualizar = sessionTx.update("RegistraMicroCredito.actualizaRegistroUsuarios", usuarios);
-			if(actualizar == 0)
+			if (actualizar == 0)
 			{
 				System.out.print("Error al actualizar usuario");
 			}
 			sessionTx.commit();
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			FabricaConexiones.rollBack(sessionTx);
 			System.out.println("Se realizo un rollBack" + e);
@@ -33,54 +34,54 @@ public class RegistraMicroCredito {
 			FabricaConexiones.close(sessionTx);
 		}
 	}
-	//Registro de una persona 
-	public void registraPersonas(Personas personas)
-	{
+	/**
+	 * Metodo registra personas, Ingresa un registro en la tabla personas
+	 * @param personas variable para registro
+	 */
+	public void registraPersonas(Personas personas) {
 		SqlSession sessionTx = null;
 		try
 		{
 			sessionTx = FabricaConexiones.obtenerSesionTx();
-			
 			int registros = sessionTx.insert("RegistraMicroCredito.insertaRegistroPersonas", personas);
-			
-			if(registros == 0)
-			{
+			if (registros == 0) {
 				System.out.print("No se pudo guardar la persona");
-				
 			}
 				sessionTx.commit();
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			System.out.print("No se pudo guardar la persona" + e);
 		}
-		finally 
+		finally
 		{
 			FabricaConexiones.close(sessionTx);
 		}
 	}
-	//Registro de un usuario 
-	public void registraUsuarios(Usuarios usuarios)
-	{
+	/**
+	 * Metodo registra usuarios, Ingresa un registro en la tabla usuarios
+	 * @param usuarios variable para registro
+	 */
+	public void registraUsuarios(Usuarios usuarios) {
 		SqlSession sessionTx = null;
 		try
 		{
 			sessionTx = FabricaConexiones.obtenerSesionTx();
-			
+
 			int registros = sessionTx.insert("RegistraMicroCredito.insertaRegistroUsuarios", usuarios);
-			
-			if(registros == 0)
+
+			if (registros == 0)
 			{
 				System.out.print("No se pudo guardar el usuario");
-				
+
 			}
 				sessionTx.commit();
 		}
-		catch(Exception e)
+		catch (Exception e)
 		{
 			System.out.print("No se pudo guardar el usuario" + e);
 		}
-		finally 
+		finally
 		{
 			FabricaConexiones.close(sessionTx);
 		}

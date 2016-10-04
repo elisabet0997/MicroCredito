@@ -8,14 +8,22 @@ import org.junit.Test;
 import com.fyg.microcredito.dto.Usuarios;
 import com.fyg.microcredito.negocio.OperacionesMicroCreditoNegocio;
 
-public class InactivaUsuario 
+public class InactivaUsuario
 {
+	/**
+	 * Se crea el objeto data para mandarle valores a usuarios
+	 */
 	private OperacionesMicroCreditoNegocio data;
-	
+	/**
+     * Objeto usuarios para mandar valores
+     */
     private Usuarios  inactivaUsuarios;
-    
+    /**
+     * @author Elisabet Vasquez
+     * @throws Exception
+     */
 	@Before
-	public void setUp() throws Exception 
+	public void setUp() throws Exception
 	{
 		   data = new OperacionesMicroCreditoNegocio();
 		   Date fecha = new Date(0);
@@ -29,15 +37,16 @@ public class InactivaUsuario
 	 */
 	@Test
 	@SuppressWarnings("static-access")
-	public void testInactivaUsuarios() 
+
+	public void testInactivaUsuarios()
 	{
 
-		try 
+		try
 		{
 			data.inactivaUsuarios(inactivaUsuarios);
 			System.out.println("Prueba exitosa");
 		}
-		catch (Exception e) 
+		catch (Exception e)
 		{
 		 System.out.printf("Error", e);
 		}
