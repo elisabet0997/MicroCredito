@@ -4,7 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.fyg.microcredito.dto.Menu;
-import com.fyg.microcredito.dto.Perfil_Menu;
+import com.fyg.microcredito.dto.Perfilmenu;
 import com.fyg.microcredito.negocio.OperacionesMicroCreditoNegocio;
 
 public class PruebaPerfilMenu {
@@ -15,7 +15,7 @@ public class PruebaPerfilMenu {
 	/**
      * Objeto perfil_menu para mandar valores
      */
-    private Perfil_Menu  registroPerfil_Menu;
+    private Perfilmenu  registroPerfilmenu;
     /**
      * Objeto menu para mandar valores
      */
@@ -40,12 +40,12 @@ public class PruebaPerfilMenu {
 		   /**
 		    * Datos que se enviaran a perfil_menu
 		    */
-		   registroPerfil_Menu = new Perfil_Menu();
+		   registroPerfilmenu = new Perfilmenu();
 
-		   registroPerfil_Menu.setObjetoMenu(registroMenu);
-		   registroPerfil_Menu.setId_perfil(134267);
-		   registroPerfil_Menu.setOrden(1);
-		   registroPerfil_Menu.setEstatus("A");
+		   registroPerfilmenu.setObjetoMenu(registroMenu);
+		   registroPerfilmenu.setId_perfil(134267);
+		   registroPerfilmenu.setOrden(1);
+		   registroPerfilmenu.setEstatus("A");
 
 
 
@@ -55,10 +55,10 @@ public class PruebaPerfilMenu {
 	 */
 	@Test
 	@SuppressWarnings("static-access")
-	public void testRegistraPerfil_Menu() {
+	public void testRegistraPerfilmenu() {
 
 		try {
-			data.registraPerfil_Menu(registroPerfil_Menu);
+			data.registraPerfilmenu(registroPerfilmenu);
 			System.out.println("Prueba exitosa");
 		}
 		catch (Exception e) {

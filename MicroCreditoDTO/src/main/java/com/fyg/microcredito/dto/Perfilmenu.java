@@ -1,6 +1,6 @@
 package com.fyg.microcredito.dto;
 
-public class Perfil_Menu {
+public class Perfilmenu {
 	/**
 	*Identificador del perfil
 	*/

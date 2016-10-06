@@ -2,7 +2,7 @@ package com.fyg.microcredito.negocio;
 
 import com.fyg.microcredito.dao.RegistraMicroCredito;
 import com.fyg.microcredito.dto.Perfil;
-import com.fyg.microcredito.dto.Perfil_Menu;
+import com.fyg.microcredito.dto.Perfilmenu;
 import com.fyg.microcredito.dto.Personas;
 import com.fyg.microcredito.dto.Usuarios;
 
@@ -30,12 +30,12 @@ public class OperacionesMicroCreditoNegocio
 	 * @param perfil_menu variable con los datos del PerfilMenu
 	 * @throws Exception
 	 */
-	public void registraPerfil_Menu(Perfil_Menu perfil_menu)
+	public void registraPerfilmenu(Perfilmenu perfilmenu)
 	{
 		try
 		{
 			RegistraMicroCredito dao = new RegistraMicroCredito();
-			dao.registraPerfil_Menu(perfil_menu);
+			dao.registraPerfilmenu(perfilmenu);
 		}
 		catch (Exception e)
 		{

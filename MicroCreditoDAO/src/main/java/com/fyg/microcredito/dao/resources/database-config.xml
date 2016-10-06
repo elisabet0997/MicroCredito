@@ -9,7 +9,9 @@
 	<typeAlias alias="Personas" type="com.fyg.microcredito.dto.Personas"/>
 	<typeAlias alias="Menu" type="com.fyg.microcredito.dto.Menu"/>
 	<typeAlias alias="Perfil" type="com.fyg.microcredito.dto.Perfil"/>
-	<typeAlias alias="Perfil_Menu" type="com.fyg.microcredito.dto.Perfil_Menu"/>
+	<typeAlias alias="Perfilmenu" type="com.fyg.microcredito.dto.Perfilmenu"/>
+	<typeAlias alias="Inicio" type="com.fyg.microcredito.dto.Inicio"/>
+	<typeAlias alias="Login" type="com.fyg.microcredito.dto.Login"/>
 </typeAliases>
 
 
@@ -26,5 +28,6 @@
 	</environments>
 	<mappers>
 	<mapper resource="com/fyg/microcredito/dao/resources/OperacionesMicroCreditoDAO.xml"/>
+	<mapper resource="com.fyg.microcredito.dao.resources.ConsultasMicroCreditoDAO.xml"/>
 	</mappers>
 </configuration>

@@ -3,18 +3,17 @@
 <mapper
 	namespace="com.fyg.microcredito.dao.resources.OperacionesMicroCreditoDAO">
 <!--- INSERTA EN  LA TABLA MENU-->
-	<insert id="insertaRegistroMenu" parameterType="menu" useGeneratedKeys="true" keyProperty="id"  keyColumn="id_menu">
+	<insert id="insertaRegistroMenu" parameterType="menu" useGeneratedKeys="true" keyProperty="id_menu"  keyColumn="id_menu">
 	INSERT INTO menu
 	(
-		id_menu,
 		id_padre,
 		menu,
 		descripcion,
 		url,
 		estatus
 	)
-		VALUES(#{id_menu}, #{id_padre}, #{menu}, #{descripcion}, #{url}, #{estatus})
-		    <selectKey keyProperty="id" resultType="Integer" order="AFTER">
+		VALUES(#{id_padre}, #{menu}, #{descripcion}, #{url}, #{estatus})
+		    <selectKey keyProperty="id_menu" resultType="Integer" order="AFTER">
             SELECT LAST_INSERT_ID();
             </selectKey>
 
@@ -32,7 +31,7 @@
 	</insert>
 <!--- INSERTA EN  LA TABLA PERFIL_MENU-->
 	<insert id="insertaRegistroPerfil_Menu" parameterType="perfil_menu">
-	INSERT INTO perfil_menu
+	INSERT INTO perfilmenu
 	(
 		id_perfil,
 		id_menu,

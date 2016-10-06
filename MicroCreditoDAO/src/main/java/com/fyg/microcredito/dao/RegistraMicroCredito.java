@@ -7,7 +7,7 @@ import org.apache.ibatis.session.SqlSession;
 import com.fyg.microcredito.dao.resources.FabricaConexiones;
 import com.fyg.microcredito.dto.Menu;
 import com.fyg.microcredito.dto.Perfil;
-import com.fyg.microcredito.dto.Perfil_Menu;
+import com.fyg.microcredito.dto.Perfilmenu;
 import com.fyg.microcredito.dto.Personas;
 import com.fyg.microcredito.dto.Usuarios;
 
@@ -170,9 +170,9 @@ public class RegistraMicroCredito {
 	}
 	/**
 	 * Metodo registra perfil_menu, Ingresa un registro en la tabla perfil_menu
-	 * @param perfil_menu variable para registro
+	 * @param perfilmenu variable para registro
 	 * */
-	public void registraPerfil_Menu(Perfil_Menu perfil_menu)
+	public void registraPerfilmenu(Perfilmenu perfilmenu)
 	{
 		SqlSession sessionTx = null;
 		try
@@ -180,14 +180,14 @@ public class RegistraMicroCredito {
 			//Abrimos conexion transaccional
 			sessionTx = FabricaConexiones.obtenerSesionTx();
 			//Primero se registra el menu
-			registraMenu(perfil_menu.getObjetoMenu(), sessionTx);
+			registraMenu(perfilmenu.getObjetoMenu(), sessionTx);
 			//Se le asigna el id del menu resultante en la tabla de perfil_menu
-			perfil_menu.setId_menu(objMenu.getId_menu());
+			perfilmenu.setId_menu(objMenu.getId_menu());
 			//Registra el perfil_menu
-			int registro = sessionTx.insert("RegstraMicroCredito.insertaRegistroPerfil_Menu", perfil_menu);
+			int registro = sessionTx.insert("RegstraMicroCredito.insertaRegistroPerfilmenu", perfilmenu);
 			if (registro == 0)
 			{
-				System.out.println("Error en registrar el perfil_menu");
+				System.out.println("Error en registrar el perfilmenu");
 			}
 			//Se realiza un commit
 			sessionTx.commit();
