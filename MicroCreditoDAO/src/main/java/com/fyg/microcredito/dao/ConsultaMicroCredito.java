@@ -22,7 +22,7 @@ public class ConsultaMicroCredito {
 		}
 		catch (Exception e)
 		{
-			System.out.println("No se pudo hcer la consulta a la tabla usuarios");
+			System.out.println("No se pudo hacer la consulta a la tabla usuarios");
 		}
 		finally
 		{

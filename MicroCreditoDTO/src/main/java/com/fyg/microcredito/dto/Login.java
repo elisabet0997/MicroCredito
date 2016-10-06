@@ -1,6 +1,7 @@
 package com.fyg.microcredito.dto;
 
 public class Login {
+	
 private String usuario;
 
 private String contrasenia;

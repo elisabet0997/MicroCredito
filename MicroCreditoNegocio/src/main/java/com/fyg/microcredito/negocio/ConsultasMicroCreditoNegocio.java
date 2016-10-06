@@ -6,19 +6,19 @@ import com.fyg.microcredito.dao.ConsultaMicroCredito;
 import com.fyg.microcredito.dto.Inicio;
 import com.fyg.microcredito.dto.Login;
 
+
 public class ConsultasMicroCreditoNegocio {
-	
-public List<Login> consultaUsuarios(Login usuarios)
-	{
+	public List<Login> consultaUsuarios(Login usuarios)
+	{	
+		
 		List<Login> listaUsuarios = null;
-	
 		try
 		{
 			listaUsuarios = new ConsultaMicroCredito().consultaUsuarios(usuarios);
 		}
 		catch (Exception e)
 		{
-			System.out.println("Error consultas usuarios" + e);
+			System.out.println("Error" + e);
 		}
 		return listaUsuarios;
 	}
