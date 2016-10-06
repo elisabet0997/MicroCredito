@@ -10,8 +10,8 @@
 	<typeAlias alias="Menu" type="com.fyg.microcredito.dto.Menu"/>
 	<typeAlias alias="Perfil" type="com.fyg.microcredito.dto.Perfil"/>
 	<typeAlias alias="Perfilmenu" type="com.fyg.microcredito.dto.Perfilmenu"/>
-	<typeAlias alias="Inicio" type="com.fyg.microcredito.dto.Inicio"/>
 	<typeAlias alias="Login" type="com.fyg.microcredito.dto.Login"/>
+	<typeAlias alias="Inicio" type="com.fyg.microcredito.dto.Inicio"/>
 </typeAliases>
 
 
@@ -20,7 +20,7 @@
 			<transactionManager type="JDBC" />
 			<dataSource type="POOLED">
 				<property name="driver" value="com.mysql.jdbc.Driver"/>
-				<property name="url" value="jdbc:mysql://localhost:3306/prueba"/>
+				<property name="url" value="jdbc:mysql://localhost:3306/microcredito"/>
 				<property name="username" value="root"/>
 				<property name="password" value="12345678"/>
 			</dataSource>
@@ -28,6 +28,6 @@
 	</environments>
 	<mappers>
 	<mapper resource="com/fyg/microcredito/dao/resources/OperacionesMicroCreditoDAO.xml"/>
-	<mapper resource="com.fyg.microcredito.dao.resources.ConsultasMicroCreditoDAO.xml"/>
+	<mapper resource="com/fyg/microcredito/dao/resources/ConsultasMicroCreditoDAO.xml"/>
 	</mappers>
 </configuration>

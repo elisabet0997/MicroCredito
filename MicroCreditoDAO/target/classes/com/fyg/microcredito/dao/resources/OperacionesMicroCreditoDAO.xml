@@ -30,7 +30,7 @@
 			VALUES(#{id_perfil}, #{nombre}, #{descripcion}, #{estatus})
 	</insert>
 <!--- INSERTA EN  LA TABLA PERFIL_MENU-->
-	<insert id="insertaRegistroPerfil_Menu" parameterType="perfil_menu">
+	<insert id="insertaRegistroPerfilmenu" parameterType="perfilmenu">
 	INSERT INTO perfilmenu
 	(
 		id_perfil,

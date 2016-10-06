@@ -1,22 +1,7 @@
 package com.fyg.microcredito.dto;
 
 public class Inicio {
-	private String usuario;
-	/**
-	*
-	*/
-	private String contrasenia;
-	/**
-	*
-	*/
-	private String estatusUsuario;
-	/**
-	*
-	*/
-	private Integer id_padre;
-	/**
-	*
-	*/
+
 	private String menu;
 	/**
 	*
@@ -51,30 +36,8 @@ public class Inicio {
 	*/
 	private String estatusPerfilmenu;
 	
-	public String getUsuario() {
-		return usuario;
-	}
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
-	}
-	public String getContrasenia() {
-		return contrasenia;
-	}
-	public void setContrasenia(String contrasenia) {
-		this.contrasenia = contrasenia;
-	}
-	public String getEstatusUsuario() {
-		return estatusUsuario;
-	}
-	public void setEstatusUsuario(String estatusUsuario) {
-		this.estatusUsuario = estatusUsuario;
-	}
-	public Integer getId_padre() {
-		return id_padre;
-	}
-	public void setId_padre(Integer id_padre) {
-		this.id_padre = id_padre;
-	}
+	private int id_perfil;
+	
 	public String getMenu() {
 		return menu;
 	}
@@ -128,5 +91,11 @@ public class Inicio {
 	}
 	public void setEstatusPerfilmenu(String estatusPerfilmenu) {
 		this.estatusPerfilmenu = estatusPerfilmenu;
+	}
+	public int getId_perfil() {
+		return id_perfil;
+	}
+	public void setId_perfil(int id_perfil) {
+		this.id_perfil = id_perfil;
 	}
 }

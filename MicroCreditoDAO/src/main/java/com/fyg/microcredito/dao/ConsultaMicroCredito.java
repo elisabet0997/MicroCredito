@@ -10,49 +10,46 @@ import com.fyg.microcredito.dto.Login;
 
 public class ConsultaMicroCredito {
 
-@SuppressWarnings("unchecked")
-public List<Inicio> consultaPerfilmenu(Inicio perfilmenu)
+	@SuppressWarnings("unchecked")
+	public List<Login> consultaUsuarios(Login usuarios)
 	{
 		SqlSession sessionTx = null;
-		List<Inicio> listaPerfilmenu = null;
+		List<Login> listaUsuarios = null;
 		try
 		{
-			//Abrimos conexion Transaccional
 			sessionTx = FabricaConexiones.obtenerSesionTx();
-			//Se hace una consulta a la tabla perfilmenu
-			listaPerfilmenu = sessionTx.selectList("ConsultaMultiSitio.consultaPerfilmenuGeneral", perfilmenu);
+			listaUsuarios = sessionTx.selectList("ConsultaMicroCredito.consultaUsuariosGeneral", usuarios);
 		}
 		catch (Exception e)
 		{
-			System.out.println("No se pudo realizar la consulta a perfilmenu");
+			System.out.println("No se pudo hcer la consulta a la tabla usuarios");
 		}
 		finally
 		{
 			FabricaConexiones.close(sessionTx);
 		}
-		return listaPerfilmenu;
+		return listaUsuarios;
 	}
 
 @SuppressWarnings("unchecked")
-public List<Login> consultaUsuarios(Login usuarios)
+public List<Inicio> consultaPerfilmenuGeneral(Inicio perfilmenu)
 {
 	SqlSession sessionTx = null;
-	List<Login> listaUsuarios = null;
+	List<Inicio> listaPerfilmenu = null;
 	try
 	{
-		//Abrimos conexion Transaccional
 		sessionTx = FabricaConexiones.obtenerSesionTx();
-		//Se hace una consulta a la tabla usuarios
-		listaUsuarios = sessionTx.selectList("ConsultaMultiSitio.consultaUsuariosGeneral", usuarios);
+
+		listaPerfilmenu = sessionTx.selectList("ConsultaMicroCredito.consultaPerfilmenuGeneral", perfilmenu);
 	}
 	catch (Exception e)
 	{
-		System.out.println("No se pudo realizar la consulta a usuarios");
+		System.out.println("No se pudo realizar la consulta a perfilmenu");
 	}
 	finally
 	{
 		FabricaConexiones.close(sessionTx);
 	}
-	return listaUsuarios;
+	return listaPerfilmenu;
 }
 }

@@ -169,7 +169,7 @@ public class RegistraMicroCredito {
 		return menu;
 	}
 	/**
-	 * Metodo registra perfil_menu, Ingresa un registro en la tabla perfil_menu
+	 * Metodo registra perfil_menu, Ingresa un registro en la tabla perfilmenu
 	 * @param perfilmenu variable para registro
 	 * */
 	public void registraPerfilmenu(Perfilmenu perfilmenu)
