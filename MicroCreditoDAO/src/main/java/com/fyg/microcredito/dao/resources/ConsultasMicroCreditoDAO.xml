@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fyg.microcredito.dao.resources.ConsultasMicroCreditoDAO">
+<select id="consultasUsuariosGeneral" parameterType="Usuarios" resultType="Login">
+SELECT usuarios.usuario AS usuario, usuarios.estatus AS estatusUsuario,
+    perfil.nombre AS nombrePerfil, perfil.descripcion AS descripcionPerfil, perfil.estatus AS estatusPerfil
+    FROM usuarios
+    INNER JOIN perfil ON usuarios.id_perfil = perfil.id_perfil
+    WHERE usuarios.contrasenia = #{contrasenia}
+</select>
+<select id="consultasPerfilmenuGeneral" parameterType="perfilmenu" resultType="Inicio">
+SELECT perfilmenu.orden AS orden, perfilmenu.estatus AS estatusPerfilmenu,
+    perfil.nombre AS nombrePerfil, perfil.descripcion AS descripcionPerfil, perfil.estatus AS estatusPerfil,
+    menu.id_padre AS id_padre, menu.menu AS menu, menu.descripcion AS descripcionMenu, menu.url AS url, menu.estatus AS estatusMenu
+    FROM perfilmenu
+    INNER JOIN perfil ON perfilmenu.id_perfil = perfil.id_perfil
+    INNER JOIN menu ON perfilmenu.id_menu = menu.id_menu
+    WHERE perfil.id_perfil = #{id_perfil}
+</select>
+</mapper>
