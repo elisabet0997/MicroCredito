@@ -1,21 +1,99 @@
 package com.fyg.microcredito.negocio;
 
 import com.fyg.microcredito.dao.RegistraMicroCredito;
-import com.fyg.microcredito.dto.Usuario;
+import com.fyg.microcredito.dto.Perfil;
+import com.fyg.microcredito.dto.Perfilmenu;
+import com.fyg.microcredito.dto.Personas;
+import com.fyg.microcredito.dto.Usuarios;
 
-public class OperacionesMicroCreditoNegocio {
-	
-	public void registraUsuario(Usuario usuarios){
-		try 
+public class OperacionesMicroCreditoNegocio
+{
+	/**
+	 * Metodo para registrar perfil
+	 * @param perfil variable con los datos del perfil
+	 * @throws Exception
+	 */
+	public void registraPerfil(Perfil perfil)
+	{
+		try
 		{
 			RegistraMicroCredito dao = new RegistraMicroCredito();
-			dao.registraUsuario(usuarios);
-			
+			dao.registraPerfil(perfil);
 		}
-		catch ( Exception e )
+		catch (Exception e)
 		{
-			System.out.printf("Error", e);
+			System.out.println("Error" + e);
+		}
+	}
+	/**
+	 * Metodo para registrar perfil_menu
+	 * @param perfilmenu variable con los datos del PerfilMenu
+	 * @throws Exception
+	 */
+	public void registraPerfilmenu(Perfilmenu perfilmenu)
+	{
+		try
+		{
+			RegistraMicroCredito dao = new RegistraMicroCredito();
+			dao.registraPerfilmenu(perfilmenu);
+		}
+		catch (Exception e)
+		{
+			System.out.println("Error" + e);
 		}
 	}
 
+	/**
+	 * Metodo para registrar personas
+	 * @param personas variable con los datos de l persona
+	 * @throws Exception
+	 */
+	public void registraPersonas(Personas personas)
+	{
+		try
+		{
+			RegistraMicroCredito dao = new RegistraMicroCredito();
+			dao.registraPersonas(personas);
+
+		}
+		catch ( Exception e )
+		{
+			System.out.println("Error" + e);
+		}
+	}
+	/**
+	 * Metodo para registrar usuarios
+	 * @param usuarios variable con los datos del usuario
+	 * @throws Exception
+	 */
+	public void registraUsuarios(Usuarios usuarios)
+	{
+		try
+		{
+			RegistraMicroCredito dao = new RegistraMicroCredito();
+			dao.registraUsuarios(usuarios);
+
+		}
+		catch ( Exception e )
+		{
+			System.out.println("Error" + e);
+		}
+	}
+	/**
+	 * Metodo para inctivar un usuario
+	 * @param usuarios variable para inactivar un usuario
+	 * @throws Exception
+	 */
+	public void inactivaUsuarios(Usuarios usuarios)
+	{
+		try
+		{
+			RegistraMicroCredito dao = new RegistraMicroCredito();
+			dao.inactivaUsuarios(usuarios);
+		}
+		catch (Exception e)
+		{
+			System.out.println("Error" + e);
+		}
+	}
 }
