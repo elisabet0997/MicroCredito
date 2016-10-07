@@ -27,7 +27,7 @@ public class OperacionesMicroCreditoNegocio
 	}
 	/**
 	 * Metodo para registrar perfil_menu
-	 * @param perfil_menu variable con los datos del PerfilMenu
+	 * @param perfilmenu variable con los datos del PerfilMenu
 	 * @throws Exception
 	 */
 	public void registraPerfilmenu(Perfilmenu perfilmenu)

@@ -7,9 +7,10 @@ import com.fyg.microcredito.dto.Login;
 import com.fyg.microcredito.negocio.ConsultasMicroCreditoNegocio;
 
 public class ConsultasTest {
+	
 	private ConsultasMicroCreditoNegocio data;
 	private Login dataUsuarios;
-	
+
 	@Before
 	public void setUp() throws Exception {
 		data = new ConsultasMicroCreditoNegocio();
@@ -22,12 +23,12 @@ public class ConsultasTest {
 		try 
 		{
 			data.consultaUsuariosGeneral(dataUsuarios);
-			
+
 		}
 		catch (Exception e) 
 		{
 			System.out.println("No se pudo hacer la consulta a usuarios 2" + e);
 		}
-		
+
 	}
 }

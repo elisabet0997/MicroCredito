@@ -8,9 +8,14 @@ import com.fyg.microcredito.dto.Login;
 
 
 public class ConsultasMicroCreditoNegocio {
+	/**
+	 * Metodo que se conecta con el dao para hacer una consulta
+	 * @param usuarios recibe valores de usuarios
+	 * @return regresa la lista de usuarios-perfil
+	 */
 	public List<Login> consultaUsuariosGeneral(Login usuarios)
-	{	
-		
+	{
+
 		List<Login> listaUsuarios = null;
 		try
 		{
@@ -20,11 +25,14 @@ public class ConsultasMicroCreditoNegocio {
 		{
 			System.out.println("Error" + e);
 		}
-		
+
 		return listaUsuarios;
 	}
-	
-
+	/**
+	 * Metodo que se conecta con el dao para hacer una consulta
+	 * @param perfilmenu recibe valores de perfilmenu
+	 * @return regresa la lista de perfil-perfilmenu-perfil
+	 */
 public List<Inicio> consultaPerfilmenuGeneral(Inicio perfilmenu)
 {
 	List<Inicio> listaPerfilmenu = null;

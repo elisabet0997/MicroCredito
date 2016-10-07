@@ -9,7 +9,11 @@ import com.fyg.microcredito.dto.Inicio;
 import com.fyg.microcredito.dto.Login;
 
 public class ConsultaMicroCredito {
-
+	/**
+	 * Metodo que consulta un usuario
+	 * @param usuarios para recibir valor de la tabla usuarios
+	 * @return regresa una lista de usuarios-perfil
+	 */
 	@SuppressWarnings("unchecked")
 	public List<Login> consultasUsuariosGeneral(Login usuarios)
 	{
@@ -32,7 +36,11 @@ public class ConsultaMicroCredito {
 		return listaUsuarios;
 
 	}
-
+	/**
+	 * Metodo que consulta perfilmenu
+	 * @param perfilmenu para recibir valor de la tabla perfilmenu
+	 * @return regresa una lista de perfilmenu-perfil-menu
+	 */
 @SuppressWarnings("unchecked")
 public List<Inicio> consultaPerfilmenuGeneral(Inicio perfilmenu)
 {
@@ -42,7 +50,7 @@ public List<Inicio> consultaPerfilmenuGeneral(Inicio perfilmenu)
 	{
 		sessionTx = FabricaConexiones.obtenerSesionTx();
 
-		listaPerfilmenu = sessionTx.selectList("ConsultaMicroCredito.consultaPerfilmenuGeneral", perfilmenu);
+		listaPerfilmenu = sessionTx.selectList("ConsultaMicroCredito.consultasPerfilmenuGeneral", perfilmenu);
 	}
 	catch (Exception e)
 	{
