@@ -8,20 +8,22 @@ import com.fyg.microcredito.dto.Login;
 
 
 public class ConsultasMicroCreditoNegocio {
-	public List<Login> consultaUsuarios(Login usuarios)
+	public List<Login> consultaUsuariosGeneral(Login usuarios)
 	{	
 		
 		List<Login> listaUsuarios = null;
 		try
 		{
-			listaUsuarios = new ConsultaMicroCredito().consultaUsuarios(usuarios);
+			listaUsuarios = new ConsultaMicroCredito().consultasUsuariosGeneral(usuarios);
 		}
 		catch (Exception e)
 		{
 			System.out.println("Error" + e);
 		}
+		
 		return listaUsuarios;
 	}
+	
 
 public List<Inicio> consultaPerfilmenuGeneral(Inicio perfilmenu)
 {

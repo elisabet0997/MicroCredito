@@ -11,24 +11,26 @@ import com.fyg.microcredito.dto.Login;
 public class ConsultaMicroCredito {
 
 	@SuppressWarnings("unchecked")
-	public List<Login> consultaUsuarios(Login usuarios)
+	public List<Login> consultasUsuariosGeneral(Login usuarios)
 	{
 		SqlSession sessionTx = null;
 		List<Login> listaUsuarios = null;
 		try
 		{
 			sessionTx = FabricaConexiones.obtenerSesionTx();
-			listaUsuarios = sessionTx.selectList("ConsultaMicroCredito.consultaUsuariosGeneral", usuarios);
+			listaUsuarios = sessionTx.selectList("ConsultaMicroCredito.consultasUsuariosGeneral", usuarios);
 		}
 		catch (Exception e)
 		{
-			System.out.println("No se pudo hacer la consulta a la tabla usuarios");
+			System.out.println("No se pudo hacer la consulta a la tabla usuarios" + e);
 		}
 		finally
 		{
 			FabricaConexiones.close(sessionTx);
 		}
+		System.out.println("Consulta:" + listaUsuarios);
 		return listaUsuarios;
+		
 	}
 
 @SuppressWarnings("unchecked")

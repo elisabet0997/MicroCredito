@@ -4,6 +4,9 @@
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <dependent-module archiveName="MicroCreditoComun-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/MicroCreditoComun/MicroCreditoComun">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <dependent-module archiveName="MicroCreditoDTO-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/MicroCreditoDTO/MicroCreditoDTO">
             <dependency-type>uses</dependency-type>
         </dependent-module>

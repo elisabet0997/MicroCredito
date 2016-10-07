@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.fyg.microcredito.dao.resources.ConsultasMicroCreditoDAO">
 
+<mapper namespace="com.fyg.microcredito.dao.resources.ConsultasMicroCreditoDAO">
+<select id="consultaUsuarios" parameterType="usuarios">
+SELECT
+	id_perfil,
+	contrasenia,
+	fecha_ult_mod,
+	estatus
+	FROM usuarios
+	WHERE usuario = #{usuario} AND contrasenia = #{contrasenia}
+</select>
+<select id="consultaPerfilmenu" parameterType="perfilmenu">
+SELECT
+	orden,
+	estatus
+	FROM perfilmenu
+	WHERE id_perfil = #{id_perfil} AND id_menu = #{id_menu}
+</select>
 <select id="consultasUsuariosGeneral" parameterType="usuarios" resultType="Login">
 SELECT usuarios.usuario AS usuario, usuarios.estatus AS estatusUsuario,
 	perfil.nombre AS nombrePerfil, perfil.descripcion AS descripcionPerfil, perfil.estatus AS estatusPerfil

@@ -41,7 +41,7 @@
   <dependencies>
   
   <dependency>
-  <groupId>com.fyg</groupId>
+   <groupId>com.fyg</groupId>
   <artifactId>MicroCreditoComun</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   </dependency>
@@ -52,5 +52,6 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+  
   </dependencies>
 </project>

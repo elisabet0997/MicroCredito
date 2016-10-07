@@ -1,4 +1,4 @@
-package com.fyg.microcredito.web;
+package com.fyg.microcredito.comun;
 
 import java.util.List;
 
@@ -11,8 +11,9 @@ import javax.ws.rs.core.Response;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.fyg.microcredito.negocio.ConsultasMicroCreditoNegocio;
 import com.fyg.microcredito.dto.Login;
+import com.fyg.microcredito.negocio.ConsultasMicroCreditoNegocio;
+
 
 @Path("/login")
 
@@ -26,7 +27,7 @@ public class JSONServiceLogin {
 		Login contrasenia = new Login();
 		contrasenia.setContrasenia(f);
 		
-		List<Login> lista = new ConsultasMicroCreditoNegocio().consultasUsuariosGeneral(contrasenia);
+		List<Login> lista = new ConsultasMicroCreditoNegocio().consultaUsuariosGeneral(contrasenia);
 		for (int i = 0; i < lista.size(); i++)
 		{
 			String usuario = lista.get(i).getUsuario();
@@ -43,6 +44,7 @@ public class JSONServiceLogin {
 		}
 		String result = "" + jsonObject;
 		return Response.status(200).entity(result).build();
+		
 	}
 
 }

@@ -1,1 +1,3 @@
-com\fyg\microcredito\dao\App.class
+com\fyg\microcredito\dao\RegistraMicroCredito.class
+com\fyg\microcredito\dao\ConsultaMicroCredito.class
+com\fyg\microcredito\dao\resources\FabricaConexiones.class
