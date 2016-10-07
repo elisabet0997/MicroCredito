@@ -28,9 +28,9 @@ public class ConsultaMicroCredito {
 		{
 			FabricaConexiones.close(sessionTx);
 		}
-		System.out.println("Consulta:" + listaUsuarios);
+
 		return listaUsuarios;
-		
+
 	}
 
 @SuppressWarnings("unchecked")

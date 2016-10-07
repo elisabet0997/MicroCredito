@@ -28,6 +28,6 @@ public class ConsultasTest {
 		{
 			System.out.println("No se pudo hacer la consulta a usuarios 2" + e);
 		}
-		System.out.println("Consulta:" + dataUsuarios);
+		
 	}
 }
